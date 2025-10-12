@@ -21,7 +21,7 @@ nix run github:ItsEthra/typst-live
 ### 1. With auto recompilation
 * Launch `typst-live` from your terminal:
 ```
-$ ./typst-live <file.typ>
+$ typst-live <file.typ>
 Server is listening on http://127.0.0.1:5599/
 ```
 * Go to `http://127.0.0.1:5599/` in your browser.
