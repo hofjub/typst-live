@@ -20,7 +20,16 @@
       }
 
       console.log("[typst-live] Got refresh message, updating pdf");
-      document.getElementById("target").src += ""
+      const target = document.getElementById("target");
+      const url = new URL(target.src, location.href);
+      url.searchParams.set("t", Date.now().toString());
+      const nextSrc = url.toString();
+
+      // Safari/WebKit can keep showing a cached PDF even when the iframe src changes.
+      // Replacing the iframe forces the embedded PDF viewer to fully reinitialize.
+      const replacement = target.cloneNode(false);
+      replacement.src = nextSrc;
+      target.replaceWith(replacement);
 
     }
 
