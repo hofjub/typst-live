@@ -41,7 +41,7 @@
 
       return {
         hash,
-        page: parsedPage ?? explicitPage,
+        page: parsedPage !== null ? parsedPage : explicitPage,
       };
     }
 
